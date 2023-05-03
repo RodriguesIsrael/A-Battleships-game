@@ -1,4 +1,4 @@
-def get_shot():
+def get_shot(guesses):
     """ask the user to input a radom number"""
     ok = "n"
     while ok == "n":
@@ -6,8 +6,9 @@ def get_shot():
             shot = input("please enter your guess ")
             shot = int(shot)
             if shot < 0 or shot > 99:
-
                 print(" incorrect number, please try again")
+            elif shot in guesses:
+                print("incorrect number, please try again")
             else:
                 ok = "y"
                 break
@@ -39,11 +40,29 @@ def show_board(hit,miss,finish):
             place = place + 1
         print(x,row)
 
-hit = [21,22]
-miss = [20,24,12,13]
-finish = [23]
+def check_shot(shot,boat1,hit,miss,finish):
+    """ checks the shots  that are given """
 
-get_shot()
-show_board(hit, miss, finish)  
+    if shot in boat1:
+        boat1.remove(shot)
+        if len(boat1) > 0:
+            hit.append(shot)
+        else:
+            finish.append(shot)
+    else:
+         miss.append(shot)
+
+    return boat1, hit, miss, finish     
+
+boat1 = [45,46,47]
+hit = []
+miss = []
+finish = []
+
+for i in range(10):
+    guesses = hit + miss + finish
+    shot = get_shot(guesses)
+    boat1,hit,miss,comp = check_shot(shot,boat1,hit,miss,finish)
+    show_board(hit, miss, finish)  
   
 
