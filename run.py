@@ -1,3 +1,18 @@
+def get_shot():
+    """ask the user to input a radom number"""
+    ok = "n"
+    while ok == "n":
+        shot = input("please enter yur guess")
+        shot = int(shot)
+        if shot < 0 or shot > 99:
+            print("incorrect number, please try again")
+        else:
+            ok = "y"
+            break    
+    return shot 
+
+     
+    
 def show_board(hit,miss,finish):
     """creating a batllesheep from schratch"""
     print ("            battleships  ")
@@ -24,5 +39,8 @@ def show_board(hit,miss,finish):
 hit = [21,22]
 miss = [20,24,12,13]
 finish = [23]
-show_board(hit, miss, finish)    
+
+get_shot()
+show_board(hit, miss, finish)  
+  
 
