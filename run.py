@@ -2,16 +2,19 @@ def get_shot():
     """ask the user to input a radom number"""
     ok = "n"
     while ok == "n":
-        shot = input("please enter yur guess")
-        shot = int(shot)
-        if shot < 0 or shot > 99:
-            print("incorrect number, please try again")
-        else:
-            ok = "y"
-            break    
-    return shot 
+        try:
+            shot = input("please enter your guess ")
+            shot = int(shot)
+            if shot < 0 or shot > 99:
 
-     
+                print(" incorrect number, please try again")
+            else:
+                ok = "y"
+                break
+        except:
+            print(" incorrect entry - please enter again")
+
+    return shot 
     
 def show_board(hit,miss,finish):
     """creating a batllesheep from schratch"""
