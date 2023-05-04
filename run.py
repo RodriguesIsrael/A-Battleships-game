@@ -40,7 +40,7 @@ def show_board(hit,miss,finish):
             place = place + 1
         print(x,row)
 
-def check_shot(shot,boat1,hit,miss,finish):
+def check_shot(shot,boat1,boat2,hit,miss,finish):
     """ checks the shots  that are given """
 
     if shot in boat1:
@@ -49,12 +49,20 @@ def check_shot(shot,boat1,hit,miss,finish):
             hit.append(shot)
         else:
             finish.append(shot)
+    elif shot in boat2:
+        boat2.remove(shot)
+        if len(boat2) > 0:
+            hit.append(shot)
+        else:
+            finish.append(shot)
     else:
          miss.append(shot)
 
-    return boat1, hit, miss, finish     
+    return boat1,boat2,hit, miss, finish     
 
-boat1 = [45,46,47]
+boat1 = [6,16,26]
+boat2 = [45,46,47]
+
 hit = []
 miss = []
 finish = []
@@ -62,7 +70,9 @@ finish = []
 for i in range(10):
     guesses = hit + miss + finish
     shot = get_shot(guesses)
-    boat1,hit,miss,comp = check_shot(shot,boat1,hit,miss,finish)
-    show_board(hit, miss, finish)  
-  
+    boat1,boat2,hit,miss,comp = check_shot(shot,boat1, boat2,hit,miss,finish)
+    show_board(hit, miss, finish)
 
+    if len(boat1) < 1 and len(boat2) < 1: # Called when the game is won
+        print("you've  won")
+print("finished")  
