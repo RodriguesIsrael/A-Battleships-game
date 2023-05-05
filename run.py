@@ -1,5 +1,12 @@
+from random import randrange
+
+boat_start = randrange(99)
+print(boat_start)
+
+"""   
 def get_shot(guesses):
-    """ask the user to input a radom number"""
+    
+    ask the user to input a radom number
     ok = "n"
     while ok == "n":
         try:
@@ -17,8 +24,8 @@ def get_shot(guesses):
 
     return shot 
     
-def show_board(hit,miss,finish):
-    """creating a batllesheep from schratch"""
+def show_boat(hit,miss,finish):
+    creating a batllesheep from schratch
     print ("            battleships  ")
     print("   0  1  2  3  4  5  6  7  8  9")
          #numbers of rows
@@ -41,7 +48,7 @@ def show_board(hit,miss,finish):
         print(x,row)
 
 def check_shot(shot,boat1,boat2,hit,miss,finish):
-    """ checks the shots  that are given """
+    checks the shots  that are given 
 
     if shot in boat1:
         boat1.remove(shot)
@@ -75,4 +82,4 @@ for i in range(10):
 
     if len(boat1) < 1 and len(boat2) < 1: # Called when the game is won
         print("you've  won")
-print("finished")  
+print("finished")  """
