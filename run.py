@@ -1,14 +1,38 @@
 from random import randrange
+def check_ok(boat):
+    """ checks to see if its a valid number"""
+    for i in range(len(boat)):
+        num = boat[i]
+        if num < 0 or num > 99: 
+            boat = [-1]
+            break       
+
+    return boat
 
 def check_boat(b,start,ristung):
-    """ checkes the boat""" 
+    """ checkes the boat   direction """ 
 
     ristung = 1
     boat = []
     if ristung  == 1:
         for i in range(b):
-            boat .append(start - i*10)
-            print(start - i*10)
+            boat.append(start - i*10)
+            boat =check_ok(boat)
+    elif ristung  == 2:
+        for i in range(b):
+            boat.append(start + i)
+            boat = check_ok(boat)
+    elif ristung  == 3:
+        for i in range(b):
+            boat .append(start + i*10)
+            boat =check_ok(boat)
+    elif ristung == 4:
+        for i in range(b):
+            boat.append(start - i)
+            boat = check_ok(boat)
+    print(boat)
+    
+
 
 boats = [5] #,4,3,3,2,2]
 for b in boats:
