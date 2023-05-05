@@ -1,7 +1,25 @@
 from random import randrange
 
-boat_start = randrange(99)
-print(boat_start)
+def check_boat(b,start,ristung):
+    """ checkes the boat""" 
+
+    ristung = 1
+    boat = []
+    if ristung  == 1:
+        for i in range(b):
+            boat .append(start - i*10)
+            print(start - i*10)
+
+boats = [5] #,4,3,3,2,2]
+for b in boats:
+    boat_start = randrange(99)
+    boat_direction = randrange(1,4)
+    print(boat_start, boat_direction)
+    check_boat(b, boat_start, boat_direction)
+
+ 
+    
+
 
 """   
 def get_shot(guesses):
