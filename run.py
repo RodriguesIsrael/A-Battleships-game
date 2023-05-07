@@ -40,20 +40,46 @@ def check_boat(b,start,ristung,taken):
             boat.append(start - i)
             boat = check_ok(boat,taken)
     return boat
-    
-taken = []
-ships = []
-boats = [5,4,3,3,2,2]
-for b in boats:
-    boat = [-1]
-    while boat[0] == -1:
-        boat_start = randrange(99)
-        boat_direction = randrange(1,4)
-        print(boat_start, boat_direction)
-        boat = check_boat(b, boat_start, boat_direction,taken)
-    ships.append(boat)
-    taken  = taken + boat
-    print(ships)
+
+def create_boats():
+    """ added a new fuction to create boat"""
+
+    taken = []
+    ships = []
+    boats = [5,4,3,3,2,2]
+    for b in boats:
+            boat = [-1]
+            while boat[0] == -1:
+                boat_start = randrange(99)
+                boat_direction = randrange(1,4)
+                print(boat_start, boat_direction)
+                boat = check_boat(b, boat_start, boat_direction,taken)
+            ships.append(boat)
+            taken  = taken + boat
+            print(ships)
+        
+    return ships,taken
+
+def show_boat(taken):
+    """creating a batllesheep from schratch"""
+    print ("            battleships  ")
+    print("   0  1  2  3  4  5  6  7  8  9")
+         #numbers of rows
+
+    place = 0
+    for x in range(10):
+        #number of collomns 
+        row = ""
+        for y in range(10):
+            ch = " - "
+            if place in taken:
+                ch = " X "
+            row = row + ch
+            place = place + 1
+        print(x,row)
+
+boats,taken = create_boats()
+show_boat(taken)
 
  
     
