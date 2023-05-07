@@ -12,7 +12,7 @@ def check_ok(boat,taken):
         elif num < 0 or num > 99: 
             boat = [-1]
             break       
-        elif num % 9 == 0 and i < len(boat) - 1 : # to avoid number out of range
+        elif num % 10 == 9 and i < len(boat) - 1 : # to avoid number out of range
             if boat[i+1] % 10 == 0:
                 boat = [-1]
                 break
@@ -48,20 +48,20 @@ def create_boats():
     ships = []
     boats = [5,4,3,3,2,2]
     for b in boats:
-            boat = [-1]
-            while boat[0] == -1:
-                boat_start = randrange(99)
-                boat_direction = randrange(1,4)
-                print(boat_start, boat_direction)
-                boat = check_boat(b, boat_start, boat_direction,taken)
-            ships.append(boat)
-            taken  = taken + boat
-            print(ships)
+        boat = [-1]
+        while boat[0] == -1:
+            boat_start = randrange(99)
+            boat_direction = randrange(1,4)
+            # print(b,boat_start, boat_direction)
+            boat = check_boat(b, boat_start, boat_direction,taken)
+        ships.append(boat)
+        taken  = taken + boat
+        #print(ships)
         
     return ships,taken
 
-def show_boat(taken):
-    """creating a batllesheep from schratch"""
+def show_board_computer(taken):
+    """creating a board for the batllesheep from schratch"""
     print ("            battleships  ")
     print("   0  1  2  3  4  5  6  7  8  9")
          #numbers of rows
@@ -73,14 +73,80 @@ def show_boat(taken):
         for y in range(10):
             ch = " - "
             if place in taken:
-                ch = " X "
+                ch = " O "
             row = row + ch
             place = place + 1
-        print(x,row)
+        print(x, " ", row)
 
-boats,taken = create_boats()
-show_boat(taken)
+def get_shot_comp(guesses):
+    
+    """shots from the computer"""
 
+    ok = "n"
+    while ok == "n":
+        try:
+            shot = randrange(99)
+            if shot not in guesses:
+                ok = "y"
+                guesses.append(shot)
+                break
+        except:
+            print(" incorrect entry - please enter again")
+
+    return shot,guesses
+
+def show_board(hit,miss,finish):
+    """creating a batllesheep from schratch"""
+    print ("            battleships  ")
+    print("   0  1  2  3  4  5  6  7  8  9")
+         #numbers of rows
+
+    place = 0
+    for x in range(10):
+        #number of collomns 
+        row = ""
+        for y in range(10):
+            ch = " - "
+            if place in miss:
+                ch = " X "
+            elif place in hit:
+                ch =  " o "
+            elif place in finish:
+                ch =  " O " 
+
+            row = row + ch
+            place = place + 1
+            
+        print(x," ",row)
+
+def check_shot(shot,ships,hit,miss,finish):
+    """checks the shots  that are given"""
+    missed = 1
+    for i in range(len(ships)):
+        if shot in ships[i]:
+            ships[i].remove(shot)
+            missed = 0
+            if len(ships[i]) > 0:
+                hit.append(shot)
+            else:
+                finish.append(shot)
+    if missed == 1:
+        miss.append(shot) # appends the missed shot
+                
+
+    return ships,hit, miss, finish     
+
+hit = []
+miss = []
+finish = []
+guesses = []
+ships,taken = create_boats()
+show_board_computer(taken)
+
+for i in range(8): # ranges the shots
+    shot, guesses = get_shot_comp(guesses)
+    ships ,hit, miss,finish = check_shot(shot, ships, hit, miss, finish)
+    show_board(hit, miss, finish)
  
     
 
