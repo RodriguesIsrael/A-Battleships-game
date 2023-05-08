@@ -1,5 +1,7 @@
 from random import randrange
 
+import random 
+
 
 def check_ok(boat,taken):
     """ checks to see if its a valid number"""
@@ -140,10 +142,30 @@ def check_shot(shot,ships,hit,miss,finish):
 
     return ships,hit, miss, finish,missed
     
-def calculate_tacts(shot,tactics):
+def calculate_tacts(shot,tactics, guesses,hit):
+    """creates a tactic shot """
 
     if len(tactics) < 1:
-        temp = []
+        temp = [shot-1, shot +1, shot-10, shot+10]
+    else:
+        if shot -1 in hit:
+            temp = [shot-2,shot+1]
+        elif shot +1 in hit:
+            temp = [shot+2,shot-1]
+        elif shot -10 in hit:
+            temp = [shot-20,shot+10]
+        elif shot +10 in hit:
+            temp = [shot+20,shot-10]
+        #tatics longer
+    canditate = []
+
+    for i in range(len(temp)):
+        if temp[i] not in guesses and temp[i] < 100 and temp[i] > -1:
+            canditate.append(temp[i])
+    random.shuffle(canditate)
+
+    return canditate
+
 hit = []
 miss = []
 finish = []
@@ -155,14 +177,16 @@ tactics = []
 for i in range(8): # ranges the shots
     shot, guesses = get_shot_comp(guesses,tactics)
     ships ,hit, miss,finish,missed = check_shot(shot, ships, hit, miss, finish)
-    show_board(hit, miss, finish)
+    
     if missed == 1:
-        tactics.append(shot)
-        tactics = calculate_tacts(shot,tactics)
+        tactics = calculate_tacts(shot,tactics,guesses,hit)
     elif missed == 2:
         tactics = []
-      
- 
+    elif len(tactics) > 0:
+        tactics.pop(0)
+
+show_board_computer(taken)
+show_board(hit,miss,finish)
     
 
 
