@@ -78,14 +78,17 @@ def show_board_computer(taken):
             place = place + 1
         print(x, " ", row)
 
-def get_shot_comp(guesses):
+def get_shot_comp(guesses,tactics):
     
     """shots from the computer"""
 
     ok = "n"
     while ok == "n":
         try:
-            shot = randrange(99)
+            if len(tactics) > 0:
+                shot = tactcs[0]
+            else:
+                shot = randrange(99)
             if shot not in guesses:
                 ok = "y"
                 guesses.append(shot)
@@ -121,32 +124,44 @@ def show_board(hit,miss,finish):
 
 def check_shot(shot,ships,hit,miss,finish):
     """checks the shots  that are given"""
-    missed = 1
+    missed = 0
     for i in range(len(ships)):
         if shot in ships[i]:
             ships[i].remove(shot)
-            missed = 0
             if len(ships[i]) > 0:
                 hit.append(shot)
+                missed = 1
             else:
                 finish.append(shot)
-    if missed == 1:
+                missed = 2
+    if missed == 0:
         miss.append(shot) # appends the missed shot
                 
 
-    return ships,hit, miss, finish     
+    return ships,hit, miss, finish,missed
+    
+def calculate_tacts(shot,tactics):
 
+    if len(tactics) < 1:
+        temp = []
 hit = []
 miss = []
 finish = []
 guesses = []
 ships,taken = create_boats()
 show_board_computer(taken)
+tactics = []
 
 for i in range(8): # ranges the shots
-    shot, guesses = get_shot_comp(guesses)
-    ships ,hit, miss,finish = check_shot(shot, ships, hit, miss, finish)
+    shot, guesses = get_shot_comp(guesses,tactics)
+    ships ,hit, miss,finish,missed = check_shot(shot, ships, hit, miss, finish)
     show_board(hit, miss, finish)
+    if missed == 1:
+        tactics.append(shot)
+        tactics = calculate_tacts(shot,tactics)
+    elif missed == 2:
+        tactics = []
+      
  
     
 
