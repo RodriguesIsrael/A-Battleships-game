@@ -88,7 +88,7 @@ def get_shot_comp(guesses,tactics):
     while ok == "n":
         try:
             if len(tactics) > 0:
-                shot = tactcs[0]
+                shot = tactics[0]
             else:
                 shot = randrange(99)
             if shot not in guesses:
@@ -144,18 +144,30 @@ def check_shot(shot,ships,hit,miss,finish):
     
 def calculate_tacts(shot,tactics, guesses,hit):
     """creates a tactic shot """
-
+    temp =[]
     if len(tactics) < 1:
         temp = [shot-1, shot +1, shot-10, shot+10]
     else:
         if shot -1 in hit:
-            temp = [shot-2,shot+1]
-        elif shot +1 in hit:
-            temp = [shot+2,shot-1]
-        elif shot -10 in hit:
-            temp = [shot-20,shot+10]
-        elif shot +10 in hit:
-            temp = [shot+20,shot-10]
+            if shot-2 in hit: #condition that runs if we got more then two hits together
+                temp = [shot-3,shot+1]
+            else:
+                temp = [shot-2,shot+1]
+        elif shot+1 in hit:
+            if shot-2 in hit:
+                temp = [shot +3,shot-1]
+            else:
+                temp = [shot+2,shot-1]
+        elif shot-10 in hit:
+            if shot-2 in hit:
+                temp = [shot-30,shot+10]
+            else:
+                temp = [shot-20,shot+10]
+        elif shot+10 in hit:
+            if shot-2 in hit:
+                temp = [shot+30,shot-10]
+            else:
+                temp = [shot+20,shot-10]
         #tatics longer
     canditate = []
 
@@ -174,7 +186,7 @@ ships,taken = create_boats()
 show_board_computer(taken)
 tactics = []
 
-for i in range(8): # ranges the shots
+for i in range(80): # ranges the shots
     shot, guesses = get_shot_comp(guesses,tactics)
     ships ,hit, miss,finish,missed = check_shot(shot, ships, hit, miss, finish)
     
