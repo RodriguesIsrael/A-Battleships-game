@@ -43,10 +43,10 @@ def check_boat(b,start,ristung,taken):
             boat = check_ok(boat,taken)
     return boat
 
-def create_boats():
+def create_boats(taken):
     """ added a new fuction to create boat"""
 
-    taken = []
+    #taken = []
     ships = []
     boats = [5,4,3,3,2,2]
     for b in boats:
@@ -178,27 +178,74 @@ def calculate_tacts(shot,tactics, guesses,hit):
 
     return canditate
 
-hit = []
-miss = []
-finish = []
-guesses = []
-ships,taken = create_boats()
-show_board_computer(taken)
-tactics = []
+def checks_if_empty_2(list_of_lists):
+    """ckecks if the sheep is ampty"""
+    return all ([not elem  for elem in list_of_lists])
 
+#ships = creates_ships()
+#print(ships)
+
+#before game
+hit1 = []
+miss1 = []
+finish1 = []
+guesses1 = []
+missed1 = 0
+# game amount of ships
+#computer creates a board for player 1
+tactics1 = []
+
+taken1 = []
+taken2 = []
+hit2 = []
+miss2 = []
+finish2 = []
+guesses2 = []
+missed2 = 0
+tactics2 = []
+battleships
+#game amount of ships
+#computer creates a board for player 1
+ships1,taken1 = create_boats(taken1)
+#user creates the board for player 2 - show board
+
+#show_board_computer(taken)
+#user creates the board for player 2 -show board
+ships2, taken2 = creates_ships(taken2)
+show_board_computer(taken2)
+#loop
 for i in range(80): # ranges the shots
-    shot, guesses = get_shot_comp(guesses,tactics)
-    ships ,hit, miss,finish,missed = check_shot(shot, ships, hit, miss, finish)
-    
-    if missed == 1:
-        tactics = calculate_tacts(shot,tactics,guesses,hit)
-    elif missed == 2:
+
+#player shoots 
+    guesses1 = hit1 + miss1 + finish1 
+    shot1 = get_shot(guesses1)
+    ships1,hit1,miss1,finish1 = check_shot(shot,ships1,hit1,miss1,finish1)
+    show_board(hit1,miss1,finish1)
+#repeat until ships empty
+    if  checks_if_empty_2(ships1):
+        print("end of game - winner in " ,i,"movies")
+        break
+
+#computer shoots
+# repeat until ships empty
+
+
+    shot2, guesses2 = get_shot_comp(guesses2,tactics2)
+    ships2 ,hit2, miss2,finish2,missed2 = check_shot(shot2, ships2, hit2, miss2, finish2)
+    show_board(hit2,miss2,finish2)
+    if missed2 == 1:
+        tactics = calculate_tacts(shot2,tactics2,guesses2,hit2)
+    elif missed2 == 2:
         tactics = []
-    elif len(tactics) > 0:
+    elif len(tactics2) > 0:
         tactics.pop(0)
 
-show_board_computer(taken)
-show_board(hit,miss,finish)
+    if  checks_if_empty_2(ships2):
+        print("end of game -computer wins" ,i,"movies")
+        break
+
+#show_board_computer(taken)
+#show_board(hit,miss,finish)
     
 
 
