@@ -5,7 +5,7 @@ import random
 
 def check_ok(boat,taken):
     """ checks to see if its a valid number"""
-
+    boat.sort()
     for i in range(len(boat)):
         num = boat[i]
         if num in taken:
@@ -14,15 +14,53 @@ def check_ok(boat,taken):
         elif num < 0 or num > 99: 
             boat = [-1]
             break       
-        elif num % 10 == 9 and i < len(boat) - 1 : # to avoid number out of range
+        elif num % 10 == 9 and i < len(boat) -1: # to avoid number out of range
             if boat[i+1] % 10 == 0:
                 boat = [-1]
                 break
-
+        if i != 0:
+            if boat[i+1] != boat[i]+1 and  boat[i+1] != boat[i]+10:
+                boat = [-1]
+                break
+            
     return boat
 
+def get_ship(long,taken):
+    
+    ok = True
+    while ok:
+        ship = []
+        #ask the user to enter 
+        print("enter your ship of length" ,long)
+        for i in range(long):
+            boat_num = input("please enter a number")
+            ship.append(int(boat_num))
+        #check that ship
+        ship = check_ok(ship,taken)
+        if ship[0] != -1:
+            taken = taken + ship
+            break
+        else:
+            print("errror - please try again")
+
+        return ship
+
+def creates_ships(): #taken,boats
+    taken = []
+    ships = []
+    boats = [5,4,3,3,2,2]
+
+    for boat in boats:
+        ship = get_ship(boat,taken)
+        ships.append(ship)
+
+    return ships #, taken
+
+ships = creates_ships() #(taken, boats)
+
+"""
 def check_boat(b,start,ristung,taken):
-    """ checkes the boat   direction """ 
+    # checkes the boat   direction  
 
     boat = []
     if ristung  == 1:
@@ -43,12 +81,12 @@ def check_boat(b,start,ristung,taken):
             boat = check_ok(boat,taken)
     return boat
 
-def create_boats(taken):
-    """ added a new fuction to create boat"""
+def create_boats(taken,boats):
+    #added a new fuction to create boat
 
     #taken = []
     ships = []
-    boats = [5,4,3,3,2,2]
+    #boats = [5,4,3,3,2,2]
     for b in boats:
         boat = [-1]
         while boat[0] == -1:
@@ -63,7 +101,7 @@ def create_boats(taken):
     return ships,taken
 
 def show_board_computer(taken):
-    """creating a board for the batllesheep from schratch"""
+    #creating a board for the batllesheep from schratch
     print ("            battleships  ")
     print("   0  1  2  3  4  5  6  7  8  9")
          #numbers of rows
@@ -82,7 +120,7 @@ def show_board_computer(taken):
 
 def get_shot_comp(guesses,tactics):
     
-    """shots from the computer"""
+    #shots from the computer
 
     ok = "n"
     while ok == "n":
@@ -101,7 +139,7 @@ def get_shot_comp(guesses,tactics):
     return shot,guesses
 
 def show_board(hit,miss,finish):
-    """creating a batllesheep from schratch"""
+    #creating a batllesheep from schratch
     print ("            battleships  ")
     print("   0  1  2  3  4  5  6  7  8  9")
          #numbers of rows
@@ -125,7 +163,7 @@ def show_board(hit,miss,finish):
         print(x," ",row)
 
 def check_shot(shot,ships,hit,miss,finish):
-    """checks the shots  that are given"""
+    #checks the shots  that are given
     missed = 0
     for i in range(len(ships)):
         if shot in ships[i]:
@@ -143,7 +181,7 @@ def check_shot(shot,ships,hit,miss,finish):
     return ships,hit, miss, finish,missed
     
 def calculate_tacts(shot,tactics, guesses,hit):
-    """creates a tactic shot """
+    #creates a tactic shot 
     temp =[]
     if len(tactics) < 1:
         temp = [shot-1, shot +1, shot-10, shot+10]
@@ -179,7 +217,7 @@ def calculate_tacts(shot,tactics, guesses,hit):
     return canditate
 
 def checks_if_empty_2(list_of_lists):
-    """ckecks if the sheep is ampty"""
+    #ckecks if the sheep is ampty
     return all ([not elem  for elem in list_of_lists])
 
 #ships = creates_ships()
@@ -203,15 +241,14 @@ finish2 = []
 guesses2 = []
 missed2 = 0
 tactics2 = []
-battleships
+battleships = [8]
 #game amount of ships
 #computer creates a board for player 1
-ships1,taken1 = create_boats(taken1)
+ships1,taken1 = create_boats(taken1,batlleships)
 #user creates the board for player 2 - show board
 
 #show_board_computer(taken)
-#user creates the board for player 2 -show board
-ships2, taken2 = creates_ships(taken2)
+ships2, taken2 = creates_ships(taken2,battleships)
 show_board_computer(taken2)
 #loop
 for i in range(80): # ranges the shots
@@ -249,7 +286,7 @@ for i in range(80): # ranges the shots
     
 
 
-"""   
+  
 def get_shot(guesses):
     
     ask the user to input a radom number
