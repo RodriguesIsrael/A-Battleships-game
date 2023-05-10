@@ -14,12 +14,12 @@ def check_ok(boat,taken):
         elif num < 0 or num > 99: 
             boat = [-1]
             break       
-        elif num % 10 == 9 and i < len(boat) -1: # to avoid number out of range
+        elif num % 10 == 9 and i < len(boat)-1: # to avoid number out of range
             if boat[i+1] % 10 == 0:
                 boat = [-1]
                 break
         if i != 0:
-            if boat[i+1] != boat[i]+1 and  boat[i+1] != boat[i]+10:
+            if boat[i] != boat[i-1]+1 and boat[i] != boat[i-1]+10:
                 boat = [-1]
                 break
             
@@ -31,7 +31,7 @@ def get_ship(long,taken):
     while ok:
         ship = []
         #ask the user to enter 
-        print("enter your ship of length" ,long)
+        print("enter your ship of length ",long)
         for i in range(long):
             boat_num = input("please enter a number")
             ship.append(int(boat_num))
@@ -41,9 +41,9 @@ def get_ship(long,taken):
             taken = taken + ship
             break
         else:
-            print("errror - please try again")
+            print("error - please try again")
 
-        return ship
+    return ship
 
 def creates_ships(): #taken,boats
     taken = []
@@ -57,6 +57,13 @@ def creates_ships(): #taken,boats
     return ships #, taken
 
 ships = creates_ships() #(taken, boats)
+print(ships)
+
+#before game
+hit = []
+miss = []
+guesses = []
+missed = 0
 
 """
 def check_boat(b,start,ristung,taken):
