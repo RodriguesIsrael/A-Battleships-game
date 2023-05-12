@@ -78,8 +78,7 @@ def check_boat(b,start,ristung,taken):
     elif ristung == 4:
         for i in range(b):
             boat.append(start - i)
-            boat = check_ok(boat,taken)
-
+    boat = check_ok(boat,taken)
     return boat
 
 def create_boats(taken,boats):
@@ -112,12 +111,12 @@ def show_board_computer(taken):
         #number of collomns 
         row = ""
         for y in range(10):
-            ch = " - "
+            ch = " _ "
             if place in taken:
                 ch = " O "
             row = row + ch
             place = place + 1
-        print(x, " ", row)
+        print(x," ",row)
 
 def get_shot_comp(guesses,tactics):
     
@@ -157,7 +156,6 @@ def show_board(hit,miss,finish):
                 ch =  " o "
             elif place in finish:
                 ch =  " O " 
-
             row = row + ch
             place = place + 1
             
@@ -178,47 +176,53 @@ def check_shot(shot,ships,hit,miss,finish):
     if missed == 0:
         miss.append(shot) # appends the missed shot
                 
-    return ships,hit, miss, finish,missed
+    return ships,hit,miss,finish,missed
     
-def calculate_tacts(shot,tactics, guesses,hit):
+def calculate_tactics(shot,tactics,guesses,hit):
     #creates a tactic shot 
-    temp =[]
+    temp = []
     if len(tactics) < 1:
-        temp = [shot-1, shot +1, shot-10, shot+10]
+        temp = [shot-1,shot+1,shot-10,shot+10]
     else:
-        if shot -1 in hit:
-            if shot-2 in hit: #condition that runs if we got more then two hits together
-                temp = [shot-3,shot+1]
-            else:
-                temp = [shot-2,shot+1]
+        if shot-1 in hit:
+            temp = [shot+1]
+            for num in [2,3,4,5,6,7,8]:
+                if shot-num  not in hit:
+                     temp.append(shot-num)
+                     break
         elif shot+1 in hit:
-            if shot-2 in hit:
-                temp = [shot +3,shot-1]
-            else:
-                temp = [shot+2,shot-1]
-        elif shot-10 in hit:
-            if shot-2 in hit:
-                temp = [shot-30,shot+10]
-            else:
-                temp = [shot-20,shot+10]
+            temp = [shot-1]
+            for num in [2,3,4,5,6,7,8]:
+                if shot+num not in hit:
+                    temp.append(shot+num)
+                    break
+        if shot-10 in hit:
+            temp = [shot+10]
+            for num in [20,30,40,50,60,70,80]:
+                if shot-num not in hit:
+                    temp.append(shot-num)
+                    break
         elif shot+10 in hit:
-            if shot-2 in hit:
-                temp = [shot+30,shot-10]
-            else:
-                temp = [shot+20,shot-10]
-        #tatics longer
-    canditate = []
+            temp = [shot-10]
+            for num in [20,30,40,50,60,70,80]:
+                if shot+num not in hit:
+                    temp.append(shot+num)
+                    break
+            
+    #tatics longer
+    candidate = []
 
     for i in range(len(temp)):
         if temp[i] not in guesses and temp[i] < 100 and temp[i] > -1:
-            canditate.append(temp[i])
-    random.shuffle(canditate)
+            candidate.append(temp[i])
+    random.shuffle(candidate)
 
-    return canditate
+    return candidate
 
 def get_shot(guesses):
-    ok = 'n'
-    while ok =='n':
+
+    ok = "n"
+    while ok == "n":
         try:
             shot = input("Please enter your guess")
             shot = int(shot)
@@ -235,8 +239,8 @@ def get_shot(guesses):
     return shot
 
 def checks_if_empty_2(list_of_lists):
-    #ckecks if the sheep is ampty
-    return all ([not elem  for elem in list_of_lists])
+    #ckecks if the ship is ampty
+    return all([not elem  for elem in list_of_lists])
 
 #ships = creates_ships()
 #print(ships)
@@ -262,7 +266,7 @@ battleships = [8]
 #computer creates a board for player 1
 ships1,taken1 = create_boats(taken1,battleships)
 #user creates the board for player 2 - show board
-ships2, taken2 = creates_ships(taken2,battleships)
+ships2,taken2 = creates_ships(taken2,battleships)
 show_board_computer(taken2)
 
 #loop
@@ -280,14 +284,16 @@ for i in range(80): # ranges the shots
 
 #computer shoots
     shot2,guesses2 = get_shot_comp(guesses2,tactics2)
-    ships2,hit2, miss2,finish2,missed2 = check_shot(shot2, ships2, hit2, miss2, finish2)
+    ships2,hit2,miss2,finish2,missed2 = check_shot(shot2,ships2,hit2,miss2,finish2)
     show_board(hit2,miss2,finish2)
+
     if missed2 == 1:
-        tactics = calculate_tacts(shot2,tactics2,guesses2,hit2)
+        tactics2 = calculate_tactics(shot2,tactics2,guesses2,hit2)
     elif missed2 == 2:
-        tactics = []
+        tactics2 = []
     elif len(tactics2) > 0:
-        tactics.pop(0)
+        tactics2.pop(0)
+        
 # repeat until ships empty
     if  checks_if_empty_2(ships2):
         print("end of game -computer wins" ,i,"movies")
