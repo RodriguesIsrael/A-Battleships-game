@@ -4,7 +4,7 @@ import random
 
 
 def check_ok(boat,taken):
-    """ checks to see if its a valid number"""
+    """ checks to see if it is a valid number"""
     boat.sort()
     for i in range(len(boat)):
         num = boat[i]
@@ -13,8 +13,9 @@ def check_ok(boat,taken):
             break
         elif num < 0 or num > 99: 
             boat = [-1]
-            break       
-        elif num % 10 == 9 and i < len(boat)-1: # to avoid number out of range
+            break  
+        #to avoid number out of range     
+        elif num % 10 == 9 and i < len(boat)-1: 
             if boat[i+1] % 10 == 0:
                 boat = [-1]
                 break
@@ -45,22 +46,17 @@ def get_ship(long,taken):
 
     return ship
 
-def creates_ships(taken,boats): #taken,boats
-    #taken = []
-    ships = []
-    #boats = [5,4,3,3,2,2]
+def creates_ships(taken,boats): 
+    """create ship"""
 
+    ships = []
     for boat in boats:
         ship = get_ship(boat,taken)
         ships.append(ship)
 
     return ships,taken
-
-#ships = creates_ships() #(taken, boats)
-#print(ships)
-
 def check_boat(b,start,ristung,taken):
-    # checkes the boat   direction  
+    """ checkes the boat   direction"""  
 
     boat = []
     if ristung  == 1:
@@ -82,33 +78,30 @@ def check_boat(b,start,ristung,taken):
     return boat
 
 def create_boats(taken,boats):
-    #added a new fuction to create boat
+    """added a new fuction to create boat"""
 
-   # taken = []
+   
     ships = []
-    #boats = [5,4,3,3,2,2]
     for b in boats:
         boat = [-1]
         while boat[0] == -1:
             boat_start = randrange(99)
             boat_direction = randrange(1,4)
-            # print(b,boat_start, boat_direction)
             boat = check_boat(b,boat_start,boat_direction,taken)
         ships.append(boat)
         taken  = taken + boat
-        #print(ships)
+        
         
     return ships,taken
 
 def show_board_computer(taken):
-    #creating a board for the batllesheep from schratch
+    """show the board of the computer shots"""
+
     print ("            battleships  ")
     print("   0  1  2  3  4  5  6  7  8  9")
          #numbers of rows
-
     place = 0
-    for x in range(10):
-        #number of collomns 
+    for x in range(10): 
         row = ""
         for y in range(10):
             ch = " _ "
@@ -119,8 +112,7 @@ def show_board_computer(taken):
         print(x," ",row)
 
 def get_shot_comp(guesses,tactics):
-    
-    #shots from the computer
+    """shots from the computer"""
 
     ok = "n"
     while ok == "n":
@@ -139,7 +131,7 @@ def get_shot_comp(guesses,tactics):
     return shot,guesses
 
 def show_board(hit,miss,finish):
-    #creating a batllesheep from schratch
+    """shows the shots of the player in the board"""
     print ("            battleships  ")
     print("   0  1  2  3  4  5  6  7  8  9")
          #numbers of rows
@@ -162,7 +154,7 @@ def show_board(hit,miss,finish):
         print(x," ",row)
 
 def check_shot(shot,ships,hit,miss,finish):
-    #checks the shots  that are given
+    """checks the shots  that are given"""
     missed = 0
     for i in range(len(ships)):
         if shot in ships[i]:
@@ -179,7 +171,8 @@ def check_shot(shot,ships,hit,miss,finish):
     return ships,hit,miss,finish,missed
     
 def calculate_tactics(shot,tactics,guesses,hit):
-    #creates a tactic shot 
+    """caculates the tactic of the shot""" 
+
     temp = []
     if len(tactics) < 1:
         temp = [shot-1,shot+1,shot-10,shot+10]
@@ -220,6 +213,7 @@ def calculate_tactics(shot,tactics,guesses,hit):
     return candidate
 
 def get_shot(guesses):
+    """the shot from the plyaer"""
 
     ok = "n"
     while ok == "n":
@@ -239,11 +233,10 @@ def get_shot(guesses):
     return shot
 
 def checks_if_empty_2(list_of_lists):
-    #ckecks if the ship is ampty
+    """ckecks if the ship is ampty"""
     return all([not elem  for elem in list_of_lists])
 
-#ships = creates_ships()
-#print(ships)
+    
 
 #before game
 hit1 = []
@@ -299,87 +292,3 @@ for i in range(80): # ranges the shots
         print("end of game -computer wins" ,i,"movies")
         break
 
-#show_board_computer(taken)
-#show_board(hit,miss,finish)
-    
-"""
-get_shot(guesses):
-    
-   #ask the user to input a radom number
-    ok = "n"
-    while ok == "n":
-        try:
-            shot = input("please enter your guess ")
-            shot = int(shot)
-            if shot < 0 or shot > 99:
-                print(" incorrect number, please try again")
-            elif shot in guesses:
-                print("incorrect number, please try again")
-            else:
-                ok = "y"
-                break
-        except:
-            print(" incorrect entry - please enter again")
-
-    return shot 
-    
-def show_boat(hit,miss,finish):
-    #creating a batllesheep from schratch
-    print ("            battleships  ")
-    print("   0  1  2  3  4  5  6  7  8  9")
-         #numbers of rows
-
-    place = 0
-    for x in range(10):
-        #number of collomns 
-        row = ""
-        for y in range(10):
-            ch = " - "
-            if place in miss:
-                ch = " x "
-            elif place in hit:
-                ch =  " o "
-            elif place in finish:
-                ch =  " O " 
-
-            row = row + ch
-            place = place + 1
-        print(x,row)
-
-def check_shot(shot,boat1,boat2,hit,miss,finish):
-    #checks the shots  that are given 
-
-    if shot in boat1:
-        boat1.remove(shot)
-        if len(boat1) > 0:
-            hit.append(shot)
-        else:
-            finish.append(shot)
-    elif shot in boat2:
-        boat2.remove(shot)
-        if len(boat2) > 0:
-            hit.append(shot)
-        else:
-            finish.append(shot)
-    else:
-         miss.append(shot)
-
-    return boat1,boat2,hit, miss, finish     
-
-boat1 = [6,16,26]
-boat2 = [45,46,47]
-
-hit = []
-miss = []
-finish = []
-
-for i in range(10):
-    guesses = hit + miss + finish
-    shot = get_shot(guesses)
-    boat1,boat2,hit,miss,comp = check_shot(shot,boat1, boat2,hit,miss,finish)
-    show_board(hit, miss, finish)
-
-    if len(boat1) < 1 and len(boat2) < 1: # Called when the game is won
-        print("you've  won")
-print("finished") 
-"""
