@@ -26,3 +26,11 @@ The capital ( X ) represents places in miss while lowercase ( o ) represents pla
 The winner is the player who sinks all their opponent's  battleship fist, when this append we
  
 have the capital ( O ) to reprent the end of the game.
+
+
+## Features
+
+
+### Existing Features
+    
+
