@@ -32,5 +32,7 @@ have the capital ( O ) to reprent the end of the game.
 
 
 ### Existing Features
-    
+     * Random board generation
+       * Ships are randomly placed on both player and computer boards
+       * The player cannot see where the computer's ship are    
 

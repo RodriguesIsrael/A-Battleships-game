@@ -98,7 +98,7 @@ def show_board_computer(taken):
     """show the board of the computer shots"""
 
     print ("            battleships  ")
-    print("   0  1  2  3  4  5  6  7  8  9")
+    print("     0  1  2  3  4  5  6  7  8  9")
          #numbers of rows
     place = 0
     for x in range(10): 
@@ -133,7 +133,7 @@ def get_shot_comp(guesses,tactics):
 def show_board(hit,miss,finish):
     """shows the shots of the player in the board"""
     print ("            battleships  ")
-    print("   0  1  2  3  4  5  6  7  8  9")
+    print("     0  1  2  3  4  5  6  7  8  9")
          #numbers of rows
 
     place = 0
