@@ -32,9 +32,9 @@ def get_ship(long,taken):
     while ok:
         ship = []
         #ask the user to enter 
-        print("enter your ship of length ",long)
+        print("enter your ship of length\n",long)
         for i in range(long):
-            boat_num = input("please enter a number")
+            boat_num = input("please enter a number  ")
             ship.append(int(boat_num))
         #check that ship
         ship = check_ok(ship,taken)
@@ -42,7 +42,7 @@ def get_ship(long,taken):
             taken = taken + ship
             break
         else:
-            print("error - please try again")
+            print("error - please try again  ")
 
     return ship
 
@@ -97,8 +97,9 @@ def create_boats(taken,boats):
 def show_board_computer(taken):
     """show the board of the computer shots"""
 
-    print ("            battleships  ")
-    print("     0  1  2  3  4  5  6  7  8  9")
+    print ("            battleships\n  ")
+    print ("            computer shot\n " )
+    print("      0  1  2  3  4  5  6  7  8  9")
          #numbers of rows
     place = 0
     for x in range(10): 
@@ -132,8 +133,9 @@ def get_shot_comp(guesses,tactics):
 
 def show_board(hit,miss,finish):
     """shows the shots of the player in the board"""
-    print ("            battleships  ")
-    print("     0  1  2  3  4  5  6  7  8  9")
+    print ("            battleships\n  ")
+    print ("              player shot\n  ")
+    print("      0  1  2  3  4  5  6  7  8  9")
          #numbers of rows
 
     place = 0
@@ -218,17 +220,17 @@ def get_shot(guesses):
     ok = "n"
     while ok == "n":
         try:
-            shot = input("Please enter your guess")
+            shot = input("Please enter your guess  ")
             shot = int(shot)
             if shot < 0 or shot > 99:
-                print("incorrect number,please try again")
+                print("incorrect number,please try again  ")
             elif shot in guesses:
-                print("incorrect number,used before")
+                print("incorrect number,used before  ")
             else:
                 ok ="y"
                 break
         except:
-            print("incorrect entry - please enter again")
+            print("incorrect entry - please enter again  ")
     
     return shot
 
