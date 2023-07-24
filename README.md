@@ -50,7 +50,20 @@ have the capital ( O ) to reprent the end of the game.
 
 ## Data Model
 
-I decided to create a simple battlesheep-game. The game creates two instances of the Board one for the player(human) and another is for the computer.
+I decided to create a simple battlesheep-game. In the begin  the game creates a board where we can see the sheep , then the game creates two instances of the Board one for the player(human) and another for the computer with  their respective tatic entraces.
 
-Every time the player makes a move on his board, the computer board appears as a second board and makes also his strategic movement.
-  
+Everytime the player makes a move on his board, the computer board appears as a second board and makes also his strategic movement.
+
+## Testing
+I have manually this project by doing the following:
+ 
+  * Passed the code throught a PEPE8linter and confirmed that there are not big issue.
+  * Give invalid inputs: string when numbers are expected out of bounds inputs, same input twice
+  * Tested in my local terminal and the Code Institute Heroku Terminal
+
+## Bugs
+
+#### Solved Bugs
+  * When I wrote the project, I was getting function declaration  error because I had forgotten 
+  that a declaration of a function always has to have (:) in end of it.
+  * I was having serious problems with code alignment, since python requires a lot of attention to code alignment, so I also had a lot of errors in this aspect while working on the project.
