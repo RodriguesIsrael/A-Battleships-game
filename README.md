@@ -34,5 +34,23 @@ have the capital ( O ) to reprent the end of the game.
 ### Existing Features
   * Random board generation
     * Ships are randomly placed on both player and computer boards
-    * The player cannot see where the computer's ship are    
+    * The player cannot see where the computer's ship are 
+     
+  * Play against the computer 
+  
+  * Input validation and error-checking
+    * You cannot enter numbers outside the size of the grid
+    * You must enter numbers
+    * You can not enter the same guess Twice
 
+### Future Features
+
+  * Allow player to select the board size and number of ships
+  * Allow player to position ship themselves
+
+## Data Model
+
+I decided to create a simple battlesheep-game. The game creates two instances of the Board one for the player(human) and another is for the computer.
+
+Every time the player makes a move on his board, the computer board appears as a second board and makes also his strategic movement.
+  
