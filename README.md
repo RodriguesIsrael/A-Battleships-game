@@ -61,7 +61,7 @@ I have manually this project by doing the following:
   * Give invalid inputs: string when numbers are expected out of bounds inputs, same input twice
   * Tested in my local terminal and the Code Institute Heroku Terminal
 
-## Bugs
+### Bugs
 
 #### Solved Bugs
   * When I wrote the project, I was getting function declaration  error because I had forgotten 
