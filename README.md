@@ -67,3 +67,23 @@ I have manually this project by doing the following:
   * When I wrote the project, I was getting function declaration  error because I had forgotten 
   that a declaration of a function always has to have (:) in end of it.
   * I was having serious problems with code alignment, since python requires a lot of attention to code alignment, so I also had a lot of errors in this aspect while working on the project.
+### Remaining Bugs
+  * No bugs remaining
+
+### Validator Testing
+  * PEP8
+    *  After a thorough correction, no more errors were found from PEP8CI.HEROKUAPP.COM
+
+## Deployment
+
+This project was deployed using Code Institute's mock terminal for Heroku.
+  * Steps for deployment:
+      *  Fork or clone this repository
+      *  Create a new Heroku app
+      *  Set the buildback to pythong and NodeJs that order
+      *  Link the Heroku app to the repository
+      *  Click on *Deploy*
+
+## Credits
+  * Code Institute for the deployment terminal
+  * Google and other internet source for details of the Battleship game
