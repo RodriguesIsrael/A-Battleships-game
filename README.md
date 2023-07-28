@@ -5,6 +5,7 @@ Battleships-game is a game that let  players and the computer to interact each o
 smart way between Computer and Human. The game target player who wants  play with the computer
  
 in very smart and excited way.
+![ro](https://github.com/RodriguesIsrael/A-Battleships-game/assets/122437243/1633e933-9346-4d56-97db-26091400a2c7)
 
 
 ## How to play
