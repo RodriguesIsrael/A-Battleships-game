@@ -87,4 +87,4 @@ This project was deployed using Code Institute's mock terminal for Heroku.
 ## Credits
   * Code Institute for the deployment terminal
   * Google and other internet source for details of the Battleship game
-+ rodiruges
+- ![#1589F0]RODRIGUES `#1589F0`
