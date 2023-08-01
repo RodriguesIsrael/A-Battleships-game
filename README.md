@@ -65,7 +65,7 @@ have the capital ( O ) to reprent the end of the game.
 
 ## Data Model
 
-I decided to create a simple battlesheep-game. In the begin  the game creates a board where we can see the sheep , then the game creates two instances of the Board one for the player(human) and another for the computer with  their respective tatic entraces.
+I decided to create a simple battleship-game. In the begin  the game creates a board where we can see the ship , then the game creates two instances of the Board one for the player(human) and another for the computer with  their respective tatic entraces.
 
 Everytime the player makes a move on his board, the computer board appears as a second board and makes also his strategic movement.
 
