@@ -47,7 +47,6 @@ have the capital ( O ) to reprent the end of the game.
  
 
 ![Screenshot (125)](https://github.com/RodriguesIsrael/A-Battleships-game/assets/122437243/7eddb390-abc8-40f8-870c-a81fe1704f92)
-
     
   
   * Input validation and error-checking
