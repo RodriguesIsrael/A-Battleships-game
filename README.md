@@ -53,6 +53,10 @@ have the capital ( O ) to reprent the end of the game.
     * You cannot enter numbers outside the size of the grid
     * You must enter numbers
     * You can not enter the same guess Twice
+   
+
+![Screenshot (129)](https://github.com/RodriguesIsrael/A-Battleships-game/assets/122437243/b4bd4768-d6c5-42bf-917f-4aebc80e1a7f)
+
 
 ### Future Features
 
