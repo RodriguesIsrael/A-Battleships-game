@@ -58,6 +58,10 @@ have the capital ( O ) to reprent the end of the game.
 ![Screenshot (129)](https://github.com/RodriguesIsrael/A-Battleships-game/assets/122437243/b4bd4768-d6c5-42bf-917f-4aebc80e1a7f)
 
 
+
+![Screenshot (260)](https://github.com/RodriguesIsrael/A-Battleships-game/assets/122437243/b3adb587-14a3-4353-8335-0785960b86aa)
+
+
 ### Future Features
 
   * Allow player to select the board size and number of ships
