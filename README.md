@@ -43,7 +43,12 @@ have the capital ( O ) to reprent the end of the game.
 
 ![Screenshot (203)](https://github.com/RodriguesIsrael/A-Battleships-game/assets/122437243/ef114283-5c03-4f40-b611-60b63c0143d8)
 
-  * Play against the computer 
+  * Play against the computer
+ 
+
+![Screenshot (125)](https://github.com/RodriguesIsrael/A-Battleships-game/assets/122437243/7eddb390-abc8-40f8-870c-a81fe1704f92)
+
+    
   
   * Input validation and error-checking
     * You cannot enter numbers outside the size of the grid
