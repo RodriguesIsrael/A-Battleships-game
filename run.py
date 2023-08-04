@@ -281,7 +281,8 @@ for i in range(80):
 #player shoots
     guesses1 = hit1 + miss1 + finish1
     shot1 = get_shot(guesses1)
-    ships1, hit1, miss1, finish1, missed1= check_shot(shot1, ships1, hit1, miss1, finish1)
+    ships1, hit1, miss1, finish1, missed1= check_shot(
+        shot1, ships1, hit1, miss1, finish1)
     show_board(hit1, miss1, finish1)
 #repeat until ships empty
     if checks_if_empty_2(ships1):
@@ -290,11 +291,13 @@ for i in range(80):
 
 #computer shoots
     shot2, guesses2 = get_shot_comp(guesses2, tactics2)
-    ships2, hit2, miss2, finish2, missed2 = check_shot(shot2, ships2, hit2, miss2, finish2)
+    ships2,hit2, miss2, finish2, missed2 = check_shot(
+        shot2, ships2, hit2, miss2, finish2)
     show_board(hit2, miss2, finish2)
 
     if missed2 == 1:
-       tactics2 = calculate_tactics(shot2, tactics2, guesses2, hit2)
+       tactics2 = calculate_tactics(
+        shot2, tactics2, guesses2, hit2)
     elif missed2 == 2:
        tactics2 = []
     elif len(tactics2) > 0:
