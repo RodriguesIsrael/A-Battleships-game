@@ -44,7 +44,7 @@ def get_ship(long, taken):
             taken = taken + ship
             break
         else:
-            print("error - please try again  ")
+            print(colorama.Fore.RED + "error - please try again  ")
 
     return ship
 
@@ -103,8 +103,8 @@ def create_boats(taken, boats):
 def show_board_computer(taken):
     """show the board of the computer shots"""
 
-    print("            battleships\n  ")
-    print("     0  1  2  3  4  5  6  7  8  9")
+    print(colorama.Fore.WHITE + "            battleships\n  ")
+    print(colorama.Fore.WHITE + "     0  1  2  3  4  5  6  7  8  9")
     #numbers of rows
     place = 0
     for x in range(10):
@@ -133,15 +133,15 @@ def get_shot_comp(guesses, tactics):
                 guesses.append(shot)
                 break
         except:
-            print(" incorrect entry - please enter again")
+            print(colorama.Fore.ORANGE + " Incorrect entry! Please enter again")
 
     return shot, guesses
 
 
 def show_board(hit, miss, finish):
     """shows the shots of the players in the board"""
-    print("            battleships\n  ")
-    print("     0  1  2  3  4  5  6  7  8  9")
+    print(colorama.Fore.WHITE + "            battleships\n  ")
+    print(colorama.Fore.WHITE + "     0  1  2  3  4  5  6  7  8  9")
     '#numbers of rows'
 
     place = 0
@@ -149,13 +149,13 @@ def show_board(hit, miss, finish):
         '#number of collomns'
         row = ""
         for y in range(10):
-            ch = " - "
+            ch = colorama.Fore.WHITE + " - "
             if place in miss:
-                ch = " X "
+                ch = colorama.Fore.RED + " X "
             elif place in hit:
-                ch = " o "
+                ch = colorama.Fore.BLUE + " o "
             elif place in finish:
-                ch = " O "
+                ch = colorama.Fore.GREEN + " O "
             row = row + ch
             place = place + 1
 
@@ -229,17 +229,17 @@ def get_shot(guesses):
     ok = "n"
     while ok == "n":
         try:
-            shot = input("Please enter your guess ")
+            shot = input(colorama.Fore.YELLOW + "Please enter your guess ")
             shot = int(shot)
             if shot < 0 or shot > 99:
-                print("incorrect number,please try again  ")
+                print(colorama.Fore.RED + "incorrect number,please try again  ")
             elif shot in guesses:
-                print("incorrect number,used before  ")
+                print(colorama.Fore.YELLOW + "incorrect number,used before  ")
             else:
                 ok = "y"
                 break
         except:
-            print("incorrect entry - please enter again  ")
+            print(colorama.Fore.PINK +"incorrect entry - please enter again  ")
 
     return shot
 
@@ -287,7 +287,7 @@ for i in range(80):
     show_board(hit1, miss1, finish1)
 #repeat until ships empty
     if checks_if_empty_2(ships1):
-        print("end of game - winner in ", i, "movies")
+        print(colorama.Fore. GREEN + "end of game - winner in ", i, "movies")
         break
 
 #computer shoots
@@ -305,5 +305,5 @@ for i in range(80):
       tactics2.pop(0)
 #repeat until ships empty
     if checks_if_empty_2(ships2):
-        print("end of game -computer wins", i, "movies")
+        print(colorama.Fore. GREEN + "end of game -computer wins", i, "movies")
         break
