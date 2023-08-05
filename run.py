@@ -1,5 +1,6 @@
 from random import randrange
-
+import colorama
+colorama.init()
 import random
 
 
@@ -28,14 +29,14 @@ def check_ok(boat, taken):
 
 
 def get_ship(long, taken):
-
     ok = True
     while ok:
         ship = []
         '#ask the user to enter'
-        print("enter your ship of length ", long)
+        print("\n")
+        print("enter your ship of length ", long,"\n")
         for i in range(long):
-            boat_num = input("please enter a number  ")
+            boat_num = input(colorama.Fore.GREEN + "please enter a number  ")
             ship.append(int(boat_num))
         '#check that ship'
         ship = check_ok(ship, taken)
@@ -228,7 +229,7 @@ def get_shot(guesses):
     ok = "n"
     while ok == "n":
         try:
-            shot = input("Please enter your guess  ")
+            shot = input("Please enter your guess ")
             shot = int(shot)
             if shot < 0 or shot > 99:
                 print("incorrect number,please try again  ")
