@@ -287,7 +287,7 @@ for i in range(80):
     show_board(hit1, miss1, finish1)
 #repeat until ships empty
     if checks_if_empty_2(ships1):
-        print(colorama.Fore. GREEN + "end of game - winner in ", i, "movies")
+        print(colorama.Fore. GREEN + "end of the  game - human win's with ", i, "movies")
         break
 
 #computer shoots
@@ -305,5 +305,5 @@ for i in range(80):
       tactics2.pop(0)
 #repeat until ships empty
     if checks_if_empty_2(ships2):
-        print(colorama.Fore. GREEN + "end of game -computer wins", i, "movies")
+        print(colorama.Fore. GREEN + "end of the game - computer win's with ", i, "movies")
         break
