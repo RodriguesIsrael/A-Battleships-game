@@ -1,7 +1,7 @@
 from random import randrange
 import colorama
-colorama.init()
 import random
+colorama.init()
 
 
 def check_ok(boat, taken):
@@ -15,7 +15,7 @@ def check_ok(boat, taken):
         elif num < 0 or num > 99:
             boat = [-1]
             break
-        #to avoid number out of range
+        #avoids NO out of range
         elif num % 10 == 9 and i < len(boat)-1:
             if boat[i+1] % 10 == 0:
                 boat = [-1]
@@ -36,20 +36,23 @@ def get_ship(long, taken):
 
         msg = colorama.Fore.YELLOW + """
         Battleship-game is bessed on the classic pen-and-paper game.
-        To know more about it you need to hava a look on Goolgle.com 
+        To know more about it you need to hava a look on Goolgle.com
         or Wikipedia.\n
         In this game, the player (human) enters 8 number from 1 - 8
         and the overwiew of the first board is generated.\n
         The player can see where the ships are indicated by an ( _ ).\n
-        The player then takes it in turn to make a guess followed by the, 
-        according to the players guess to try to sink each other's battleships.\n
-        The capital ( X ) represents places in miss while lowercase ( o ) 
+        The player then takes it in turn to make a guess followed by the,
+        according to the players guess to try to sink each other's
+        battleships.\n
+        The capital ( X ) represents places in miss while lowercase ( o )
         represents places in hit.\n
-        The winner is the player who sinks all their opponent's battleship fist, 
-        when this append we have the capital ( O ) to reprent the end of the game.\n"""
-        print(msg)   
+        The winner is the player who sinks all their opponent's battleship
+        fist, when this append we have the capital ( O ) to reprent the end of
+        the game.\n"""
 
-        print(colorama.Fore.WHITE +"enter your ship of length ", long,"\n")
+        print(msg)
+
+        print(colorama.Fore.WHITE + "enter your ship of length ", long, "\n")
         for i in range(long):
             boat_num = input(colorama.Fore.GREEN + "please enter a number  ")
             ship.append(int(boat_num))
@@ -101,7 +104,6 @@ def check_boat(b, start, ristung, taken):
 def create_boats(taken, boats):
     """added a new fuction to create boat"""
 
-
     ships = []
     for b in boats:
         boat = [-1]
@@ -120,7 +122,7 @@ def show_board_computer(taken):
 
     print(colorama.Fore.YELLOW + "            battleships\n  ")
     print(colorama.Fore.WHITE + "     0  1  2  3  4  5  6  7  8  9")
-    #numbers of rows
+    '#numbers of rows'
     place = 0
     for x in range(10):
         row = ""
@@ -147,8 +149,8 @@ def get_shot_comp(guesses, tactics):
                 ok = "y"
                 guesses.append(shot)
                 break
-        except:
-            print(colorama.Fore.ORANGE + " Incorrect entry! Please enter again")
+        except User.DoesNotExist:
+            print(colorama.Fore.ORANGE + "Incorrect entry! Please enter again")
 
     return shot, guesses
 
@@ -174,9 +176,9 @@ def show_board(hit, miss, finish):
             row = row + ch
             place = place + 1
 
-        print(x, " " ,row)
+        print(x, " ", row)
 
- 
+
 def check_shot(shot, ships, hit, miss, finish):
     """checks the shots  that are given"""
     missed = 0
@@ -205,9 +207,9 @@ def calculate_tactics(shot, tactics, guesses, hit):
         if shot - 1 in hit:
             temp = [shot + 1]
             for num in [2, 3, 4, 5, 6, 7, 8]:
-                if  shot - num not in hit:
-                     temp.append(shot - num)
-                     break
+                if shot - num not in hit:
+                    temp.append(shot - num)
+                    break
         elif shot + 1 in hit:
             temp = [shot - 1]
             for num in [2, 3, 4, 5, 6, 7, 8]:
@@ -247,14 +249,14 @@ def get_shot(guesses):
             shot = input(colorama.Fore.YELLOW + "Please enter your guess ")
             shot = int(shot)
             if shot < 0 or shot > 99:
-                print(colorama.Fore.RED + "incorrect number,please try again  ")
+                print(colorama.Fore.RED + "incorrect number,please try again ")
             elif shot in guesses:
-                print(colorama.Fore.YELLOW + "incorrect number,used before  ")
+                print(colorama.Fore.YELLOW + "incorrect number,used before ")
             else:
                 ok = "y"
                 break
-        except:
-            print(colorama.Fore.PINK +"incorrect entry - please enter again  ")
+        except User.DoesNotExist:
+            print(colorama.Fore.PINK + "incorrect entry - please enter again ")
 
     return shot
 
@@ -264,7 +266,7 @@ def checks_if_empty_2(list_of_lists):
     return all([not elem for elem in list_of_lists])
 
 
-#before game
+'#before game'
 hit1 = []
 miss1 = []
 finish1 = []
@@ -292,33 +294,33 @@ show_board_computer(taken2)
 '#loop'
 
 for i in range(80):
-  #ranges the shots
+    '#ranges the shots'
 
-#player shoots
+    '#player shoots'
     guesses1 = hit1 + miss1 + finish1
     shot1 = get_shot(guesses1)
-    ships1, hit1, miss1, finish1, missed1= check_shot(
+    ships1, hit1, miss1, finish1, missed1 = check_shot(
         shot1, ships1, hit1, miss1, finish1)
     show_board(hit1, miss1, finish1)
-#repeat until ships empty
+    '#repeat until ships empty'
     if checks_if_empty_2(ships1):
-        print(colorama.Fore. GREEN + "end of the  game - human win's with ", i, "movies")
+        print(colorama.Fore. GREEN + "End! Human win's with ", i, "movies")
         break
 
-#computer shoots
+    '#computer shoots'
     shot2, guesses2 = get_shot_comp(guesses2, tactics2)
-    ships2,hit2, miss2, finish2, missed2 = check_shot(
+    ships2, hit2, miss2, finish2, missed2 = check_shot(
         shot2, ships2, hit2, miss2, finish2)
     show_board(hit2, miss2, finish2)
 
     if missed2 == 1:
-       tactics2 = calculate_tactics(
-        shot2, tactics2, guesses2, hit2)
+        tactics2 = calculate_tactics(
+         shot2, tactics2, guesses2, hit2)
     elif missed2 == 2:
-       tactics2 = []
+        tactics2 = []
     elif len(tactics2) > 0:
-      tactics2.pop(0)
-#repeat until ships empty
+        tactics2.pop(0)
+    '#repeat until ships empty'
     if checks_if_empty_2(ships2):
-        print(colorama.Fore. GREEN + "end of the game - computer win's with ", i, "movies")
+        print(colorama.Fore. GREEN + "End! Computer win's with ", i, "movies")
         break
