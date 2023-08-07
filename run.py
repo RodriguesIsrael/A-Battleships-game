@@ -33,8 +33,23 @@ def get_ship(long, taken):
     while ok:
         ship = []
         '#ask the user to enter'
-        print("\n")
-        print("enter your ship of length ", long,"\n")
+
+        msg = colorama.Fore.YELLOW + """
+        Battleship-game is bessed on the classic pen-and-paper game.
+        To know more about it you need to hava a look on Goolgle.com 
+        or Wikipedia.\n
+        In this game, the player (human) enters 8 number from 1 - 8
+        and the overwiew of the first board is generated.\n
+        The player can see where the ships are indicated by an ( _ ).\n
+        The player then takes it in turn to make a guess followed by the, 
+        according to the players guess to try to sink each other's battleships.\n
+        The capital ( X ) represents places in miss while lowercase ( o ) 
+        represents places in hit.\n
+        The winner is the player who sinks all their opponent's battleship fist, 
+        when this append we have the capital ( O ) to reprent the end of the game.\n"""
+        print(msg)   
+
+        print(colorama.Fore.WHITE +"enter your ship of length ", long,"\n")
         for i in range(long):
             boat_num = input(colorama.Fore.GREEN + "please enter a number  ")
             ship.append(int(boat_num))
@@ -103,7 +118,7 @@ def create_boats(taken, boats):
 def show_board_computer(taken):
     """show the board of the computer shots"""
 
-    print(colorama.Fore.WHITE + "            battleships\n  ")
+    print(colorama.Fore.YELLOW + "            battleships\n  ")
     print(colorama.Fore.WHITE + "     0  1  2  3  4  5  6  7  8  9")
     #numbers of rows
     place = 0
@@ -140,7 +155,7 @@ def get_shot_comp(guesses, tactics):
 
 def show_board(hit, miss, finish):
     """shows the shots of the players in the board"""
-    print(colorama.Fore.WHITE + "            battleships\n  ")
+    print(colorama.Fore.YELLOW + "            battleships\n  ")
     print(colorama.Fore.WHITE + "     0  1  2  3  4  5  6  7  8  9")
     '#numbers of rows'
 
