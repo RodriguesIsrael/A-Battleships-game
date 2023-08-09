@@ -76,9 +76,9 @@ Everytime the player makes a move on his board, the computer board appears as a 
 ## Testing
 I have manually this project by doing the following:
  
-  * Passed the code throught a PEPE8linter and confirmed that there are not big issue.
+  * Passed the code throught a PEPE8linter and confirmed that there are no issue.
   * Give invalid inputs: string when numbers are expected out of bounds inputs, same input twice
-  * Tested in my local terminal and the Code Institute Heroku Terminal
+  * Tested in my local terminal and  Heroku open app
 
 ### Bugs
 
@@ -91,7 +91,13 @@ I have manually this project by doing the following:
 
 ### Validator Testing
   * PEP8
-    *  After a thorough correction, no more errors were found from PEP8CI.HEROKUAPP.COM
+    *  After a thorough correction with PEP8CI.HEROKUAPP.COM, no more errors were found
+
+## Technology
+  * Gidpod
+  * Heroku
+  * Visual Studio 
+  * PEP8
 
 ## Deployment
 
@@ -99,7 +105,7 @@ This project was deployed using Code Institute's mock terminal for Heroku.
   * Steps for deployment:
       *  Fork or clone this repository
       *  Create a new Heroku app
-      *  Set the buildback to pythong and NodeJs that order
+      *  Set the buildback to pythong and NodeJs in that order
       *  Link the Heroku app to the repository
       *  Click on *Deploy*
 
