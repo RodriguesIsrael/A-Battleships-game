@@ -98,6 +98,7 @@ I have manually this project by doing the following:
   * Heroku
   * Visual Studio 
   * PEP8
+  * Pypi.org(colorama)
 
 ## Deployment
 
@@ -111,5 +112,7 @@ This project was deployed using Code Institute's mock terminal for Heroku.
 
 ## Credits
   * Code Institute for the deployment terminal
-  * Google and other internet source for details of the Battleship-game
+  * Internet source
+  * Stack overflow
+  * Google
 
