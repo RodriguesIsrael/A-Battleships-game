@@ -249,14 +249,14 @@ def get_shot(guesses):
             shot = input(colorama.Fore.YELLOW + "  Please enter your guess ")
             shot = int(shot)
             if shot < 0 or shot > 99:
-                print(colorama.Fore.RED + "  incorrect number,please try again ")
+                print(colorama.Fore.RED + "  Number entered out of range, please enter again ")
             elif shot in guesses:
-                print(colorama.Fore.YELLOW + "  incorrect number,used before ")
+                print(colorama.Fore.YELLOW + "  Number used before, please enter egain ")
             else:
                 ok = "y"
                 break
         except:
-            print(colorama.Fore.RED+ "  incorrect entry - please enter again ")
+            print(colorama.Fore.RED+ "  Entry is not a number,please enter again ")
 
     return shot
 
@@ -266,7 +266,8 @@ def checks_if_empty_2(list_of_lists):
     return all([not elem for elem in list_of_lists])
 
 
-'#before game'
+'#before game'100
+
 hit1 = []
 miss1 = []
 finish1 = []
