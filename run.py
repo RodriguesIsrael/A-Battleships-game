@@ -52,9 +52,9 @@ def get_ship(long, taken):
 
         print(msg)
 
-        print(colorama.Fore.WHITE + "enter your ship of length ", long, "\n")
+        print(colorama.Fore.WHITE + "  enter your ship of length ", long, "\n")
         for i in range(long):
-            boat_num = input(colorama.Fore.GREEN + "please enter a number  ")
+            boat_num = input(colorama.Fore.GREEN + "  please enter a number  ")
             ship.append(int(boat_num))
         '#check that ship'
         ship = check_ok(ship, taken)
@@ -62,7 +62,7 @@ def get_ship(long, taken):
             taken = taken + ship
             break
         else:
-            print(colorama.Fore.RED + "error - please try again  ")
+            print(colorama.Fore.RED + "  error - please try again  ")
 
     return ship
 
@@ -150,7 +150,7 @@ def get_shot_comp(guesses, tactics):
                 guesses.append(shot)
                 break
         except User.DoesNotExist:
-            print(colorama.Fore.ORANGE + "Incorrect entry! Please enter again")
+            print(colorama.Fore.ORANGE + "  Incorrect entry! Please enter again")
 
     return shot, guesses
 
@@ -246,17 +246,17 @@ def get_shot(guesses):
     ok = "n"
     while ok == "n":
         try:
-            shot = input(colorama.Fore.YELLOW + "Please enter your guess ")
+            shot = input(colorama.Fore.YELLOW + "  Please enter your guess ")
             shot = int(shot)
             if shot < 0 or shot > 99:
-                print(colorama.Fore.RED + "incorrect number,please try again ")
+                print(colorama.Fore.RED + "  incorrect number,please try again ")
             elif shot in guesses:
-                print(colorama.Fore.YELLOW + "incorrect number,used before ")
+                print(colorama.Fore.YELLOW + "  incorrect number,used before ")
             else:
                 ok = "y"
                 break
         except User.DoesNotExist:
-            print(colorama.Fore.PINK + "incorrect entry - please enter again ")
+            print(colorama.Fore.PINK + "  incorrect entry - please enter again ")
 
     return shot
 
@@ -304,7 +304,7 @@ for i in range(80):
     show_board(hit1, miss1, finish1)
     '#repeat until ships empty'
     if checks_if_empty_2(ships1):
-        print(colorama.Fore. GREEN + "End! Human win's with ", i, "movies")
+        print(colorama.Fore. GREEN + "  End! Human win's with ", i, "movies")
         break
 
     '#computer shoots'
@@ -322,5 +322,5 @@ for i in range(80):
         tactics2.pop(0)
     '#repeat until ships empty'
     if checks_if_empty_2(ships2):
-        print(colorama.Fore. GREEN + "End! Computer win's with ", i, "movies")
+        print(colorama.Fore. GREEN + "  End! Computer win's with ", i, "movies")
         break
