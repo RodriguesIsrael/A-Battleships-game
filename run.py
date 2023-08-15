@@ -266,7 +266,7 @@ def checks_if_empty_2(list_of_lists):
     return all([not elem for elem in list_of_lists])
 
 
-'#before game'100
+'#before game'
 
 hit1 = []
 miss1 = []
