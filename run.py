@@ -149,7 +149,7 @@ def get_shot_comp(guesses, tactics):
                 ok = "y"
                 guesses.append(shot)
                 break
-        except User.DoesNotExist:
+        except:
             print(colorama.Fore.ORANGE + "  Incorrect entry! Please enter again")
 
     return shot, guesses
@@ -255,8 +255,8 @@ def get_shot(guesses):
             else:
                 ok = "y"
                 break
-        except User.DoesNotExist:
-            print(colorama.Fore.PINK + "  incorrect entry - please enter again ")
+        except:
+            print(colorama.Fore.RED+ "  incorrect entry - please enter again ")
 
     return shot
 
