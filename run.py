@@ -52,7 +52,7 @@ def get_ship(long, taken):
 
         print(msg)
 
-        print(colorama.Fore.WHITE + "  enter your ship of length ", long, "\n")
+        print(colorama.Fore.WHITE + "  enter your ship of length (1-8)", long, "\n")
         for i in range(long):
             boat_num = input(colorama.Fore.GREEN + "  please enter a number  ")
             ship.append(int(boat_num))
