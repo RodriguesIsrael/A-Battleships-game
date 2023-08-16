@@ -1,4 +1,4 @@
-# Battleships-game
+![Screenshot (406)](https://github.com/RodriguesIsrael/A-Battleships-game/assets/122437243/96a979d0-55d2-479a-89b4-bdeee4552d1d)# Battleships-game
 
 Battleships-game is a game that let  players and the computer to interact each other on a very
 
@@ -49,7 +49,12 @@ have the capital ( O ) to reprent the end of the game.
   * Play against the computer
  
 
-![Screenshot (125)](https://github.com/RodriguesIsrael/A-Battleships-game/assets/122437243/7eddb390-abc8-40f8-870c-a81fe1704f92)
+![Screenshot (401)](https://github.com/RodriguesIsrael/A-Battleships-game/assets/122437243/aaeb5ebd-ac3d-4c04-b7fb-1439b6b280d8)
+
+
+![Screenshot (413)](https://github.com/RodriguesIsrael/A-Battleships-game/assets/122437243/7d0de70f-ed64-428a-8b9c-e892c9fa6b60)
+
+
     
   
   * Input validation and error-checking
@@ -57,12 +62,12 @@ have the capital ( O ) to reprent the end of the game.
     * You must enter numbers
     * You can not enter the same guess Twice
    
-
-![Screenshot (129)](https://github.com/RodriguesIsrael/A-Battleships-game/assets/122437243/b4bd4768-d6c5-42bf-917f-4aebc80e1a7f)
-
+![Screenshot (407)](https://github.com/RodriguesIsrael/A-Battleships-game/assets/122437243/f0bdfe1d-5517-4a06-8464-6e92030b2829)
 
 
-![Screenshot (260)](https://github.com/RodriguesIsrael/A-Battleships-game/assets/122437243/b3adb587-14a3-4353-8335-0785960b86aa)
+
+![Screenshot (406)](https://github.com/RodriguesIsrael/A-Battleships-game/assets/122437243/c05c9ccf-84c0-40b5-8269-b485c72dd85f)
+
 
 
 ### Future Features
