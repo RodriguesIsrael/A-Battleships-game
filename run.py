@@ -120,7 +120,7 @@ def create_boats(taken, boats):
 def show_board_computer(taken):
     """show the board of the computer shots"""
 
-    print(colorama.Fore.YELLOW + "            battleships\n  ")
+    print(colorama.Fore.YELLOW + "           battleships\n  ")
     print(colorama.Fore.WHITE + "     0  1  2  3  4  5  6  7  8  9")
     '#numbers of rows'
     place = 0
@@ -157,7 +157,7 @@ def get_shot_comp(guesses, tactics):
 
 def show_board(hit, miss, finish):
     """shows the shots of the players in the board"""
-    print(colorama.Fore.YELLOW + "            battleships\n  ")
+    print(colorama.Fore.YELLOW + "           battleships\n  ")
     print(colorama.Fore.WHITE + "     0  1  2  3  4  5  6  7  8  9")
     '#numbers of rows'
 
@@ -251,7 +251,7 @@ def get_shot(guesses):
             if shot < 0 or shot > 99:
                 print(colorama.Fore.RED + "  Number entered out of range, please enter again ")
             elif shot in guesses:
-                print(colorama.Fore.YELLOW + "  Number used before, please enter egain ")
+                print(colorama.Fore.RED + "  Number used before, please enter egain ")
             else:
                 ok = "y"
                 break
