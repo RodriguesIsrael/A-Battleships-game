@@ -40,10 +40,11 @@ have the capital ( O ) to reprent the end of the game.
 ### Existing Features
   * Random board generation
     * Ships are randomly placed on both player and computer boards
-    * The player cannot see where the computer's ship are 
+    * The player cannot see where the computer's ship are
+      
 
+![Screenshot (409)](https://github.com/RodriguesIsrael/A-Battleships-game/assets/122437243/a4a0742b-3bc9-4ea0-b928-618d2239b975)
 
-![Screenshot (203)](https://github.com/RodriguesIsrael/A-Battleships-game/assets/122437243/ef114283-5c03-4f40-b611-60b63c0143d8)
 
   * Play against the computer
  
