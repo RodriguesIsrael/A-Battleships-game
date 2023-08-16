@@ -85,7 +85,7 @@ I have manually this project by doing the following:
   * Passed the code throught a PEPE8linter and confirmed that there are no issue.
   * Give invalid inputs: string when numbers are expected out of bounds inputs, same input twice
   * To many white space where found on my code, but they were all deleted
-  * Very long line of code, were all shorted without affection the performance of the code.
+  * Very long line of code, were all shorted without affecting the performance of the code.
   * Tested in my local terminal and  Heroku open app
 
 ### Bugs
