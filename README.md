@@ -7,7 +7,7 @@ smart way between Computer and Human. The game target player who wants  play wit
 in very smart and excit
 
 
-![Screenshot (409)](https://github.com/RodriguesIsrael/A-Battleships-game/assets/122437243/28d18ad1-a729-4fdf-9dae-4acd39475d3d)
+![ro](https://github.com/RodriguesIsrael/A-Battleships-game/assets/122437243/1633e933-9346-4d56-97db-26091400a2c7)
 
 
 
