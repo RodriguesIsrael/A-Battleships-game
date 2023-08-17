@@ -107,6 +107,7 @@ I have manually this project by doing the following:
   * Visual Studio 
   * PEP8
   * Pypi.org(colorama)
+  
 
 ## Deployment
 
@@ -123,4 +124,5 @@ This project was deployed using Code Institute's mock terminal for Heroku.
   * Internet source
   * Stack overflow
   * Google
+  * Youtube
 
