@@ -121,6 +121,7 @@ This project was deployed using Code Institute's mock terminal for Heroku.
       *  Navigate to "Deploy". Set the deployment method to Github and enter repository name and connect.
       *  Scroll down to Manual Deploy, select "main" branch and click "Deploy Branch".
       *  The app will now be deployed to heroku
+        
 TODO - Live Link
 ## Credits
   * Code Institute for the deployment terminal
