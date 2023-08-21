@@ -113,12 +113,15 @@ I have manually this project by doing the following:
 
 This project was deployed using Code Institute's mock terminal for Heroku.
   * Steps for deployment:
-      *  Fork or clone this repository
-      *  Create a new Heroku app
-      *  Set the buildback to pythong and NodeJs in that order
-      *  Link the Heroku app to the repository
-      *  Click on *Deploy*
-
+      *  Go to Heroku and click "New" to create a new app.
+      *  Choose an app name and region region, click "Create app".
+      *  Go to "Settings" and navigate to Config Vars. Add the following config variables:
+          *PORT : 8000
+      *  Navigate to Buildpacks and add buildpacks for Python and NodeJS (in that order).
+      *  Navigate to "Deploy". Set the deployment method to Github and enter repository name and connect.
+      *  Scroll down to Manual Deploy, select "main" branch and click "Deploy Branch".
+      *  The app will now be deployed to heroku
+TODO - Live Link
 ## Credits
   * Code Institute for the deployment terminal
   * Internet source
