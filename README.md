@@ -127,8 +127,14 @@ This project was deployed using Code Institute's mock terminal for Heroku.
 TODO - Live Link
 ## Credits
   * Code Institute for the deployment terminal
-  * Internet source(python-forum.io,rollbar.com,copyassignment.com)
-  * Stack overflow
-  * Google
+  * Internet source([python-forum.io](https://python-forum.io/), https://rollbar.com/blog/undefined-variable-nameerror- 
+    python/,[copyassignmenhttps://python-forum.io/t.c](https://copyassignment.com/)) Are open websites, created by 
+    experienced 
+    programmers who help new programmers and allow them to have access on their open source if they find issue while 
+    programming(collect ideas).
+  * Stack overflow. Is world wide known website that helps programmers to access  soluction when they are stucked 
+    while coding, there we can find short codes(open source) that we can use to improve our logic or correct an error.
+  * Google. The well known plantform is a window to access many others windown, I used Google to search the above websites     by making quetions and then Google answers by openning  many websites as options including Youtube tutorials videos 
+    too,  where there are many open source to take ideas from. 
 
 
