@@ -125,7 +125,7 @@ This project was deployed using Code Institute's mock terminal for Heroku.
 TODO - Live Link
 ## Credits
   * Code Institute for the deployment terminal
-  * Internet source(python-forum.io,rollbar.com,copyassignment.com.
+  * Internet source(python-forum.io,rollbar.com,copyassignment.com)
   * Stack overflow
   * Google
 
