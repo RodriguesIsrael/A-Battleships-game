@@ -135,6 +135,4 @@ TODO - Live Link
   * Stack overflow. Is world wide known website that helps programmers to access  soluction when they are stucked 
     while coding, there we can find short codes(open source) that we can use to improve our logic or correct an error.
   * Google. The well known plantform is a window to access many others windown, I used Google to search the above websites     by making quetions and then Google answers by openning  many websites as options including Youtube tutorials videos 
-    too for exemple: https://www.google.com/searchq=how+to+use+colorama+in+python&rlz=1C1GCEA_enDE988DE988&oq=how+toinclude
-    +colorama+i&aqs=chrome.1.69i57j0i22i30l4.41494j0j15&sourceid=chrome&ie=UTF-8
-   
+    too for exemple: https://www.google.com/search?q=how+to+use+colorama+in+python&rlz=1C1GCEA_enDE988DE988&oq=how+to+include+colorama+i&aqs=chrome.1.69i57j0i22i30l4.41494j0j15&sourceid=chrome&ie=UTF-8
